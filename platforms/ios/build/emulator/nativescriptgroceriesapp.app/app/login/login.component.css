@@ -1,0 +1,40 @@
+/* layout */
+FlexboxLayout {
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-image: url("https://newevolutiondesigns.com/images/freebies/galaxy-iphone-wallpaper-6.jpg")
+  /* background-image: url("~/images/background.jpg"); */
+}
+StackLayout {
+  width: 300;
+  padding: 10 16;
+  background-color: #fff;
+}
+
+/* image & controls */
+Image {
+  margin-bottom: 20;
+  height: 70;
+}
+Button, TextField {
+  margin-bottom: 10;
+}
+.btn-primary {
+  background-color: #60b0f4;
+  margin-left: 0;
+  margin-right: 0;
+}
+TextField {
+  placeholder-color: #C4AFB4;
+  color: black;
+}
+.dark {
+  background-color: #301217;
+}
+.dark TextField {
+  color:  #C4AFB4;
+}
+ActivityIndicator {
+  color: white;
+}

@@ -1,0 +1,33 @@
+<ActionBar title="Groceries"></ActionBar>
+
+<!-- grid layout with two rows:
+     1st child (GridLayout) will take up the size of its children (auto);
+     2nd child (RadListView) will take up the rest of the size (*) -->
+<GridLayout rows="auto, *">
+
+    <!-- 1st row (row0) -->
+	<GridLayout row="0" columns="*, auto" class="add-bar">
+		<TextField #groceryTextField [(ngModel)]="grocery" hint="Enter a grocery item" col="0"></TextField>
+		<Image src="~/images/add.png" (tap)="add()" col="1"></Image>
+	</GridLayout>
+
+	<!-- 2nd row (row1) -->
+    <RadListView row="1" [class.visible]="listLoaded" [items]="groceryList" swipeActions="true" (itemSwipeProgressStarted)="onSwipeCellStarted($event)">
+
+        <ng-template let-item="item">
+            <Label [text]="item.name" class="p-15"></Label>
+        </ng-template>
+
+        <GridLayout *tkListItemSwipeTemplate columns="*, auto">
+            <StackLayout id="delete-view" col="1" (tap)="delete($event)" class="delete-view">
+                <Image src="~/images/delete.png"></Image>
+            </StackLayout>
+        </GridLayout>
+
+    </RadListView>
+
+    <!-- loading spinner -->
+    <ActivityIndicator [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" row="1" horizontalAlignment="center"
+        verticalAlignment="center"></ActivityIndicator>
+
+</GridLayout>
